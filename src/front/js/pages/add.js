@@ -21,7 +21,7 @@ export const Add = () => {
 
 	return (
 		<div className="container">
-			<div className="container mx-auto" style={{ maxWidth: 500, height: 'auto' }}>
+			<div className="container mx-auto form-1">
 				<Form>
 					<Form.Group className="m-3" controlId="formBasicID">
 						<Form.Label>ID</Form.Label>

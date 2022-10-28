@@ -6,3 +6,8 @@
     overflow: auto;
     display:inline-block;
   }
+
+.form-1 {
+    max-width: 500;
+    height: auto;
+}

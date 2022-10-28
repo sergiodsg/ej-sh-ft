@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faSpider } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Navbar = () => {
@@ -8,28 +8,28 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<Link to="/">
-					<button className="btn btn btn-success">
+					<button className="btn btn btn-primary d-flex align-items-center">
 					<FontAwesomeIcon
-                        className="fs-2"
-                        icon={faHome}
-                      />
+                        className="fs-2 me-2"
+                        icon={faSpider}
+                      /> Home (List of all superheros)
 					</button>
 				</Link>
 				<div className="ml-auto">
 					<Link to="/id-search">
-						<button className="btn btn-outline-secondary mx-2">Search by id</button>
+						<button className="btn btn-outline-danger mx-2">Search by id</button>
 					</Link>
 					<Link to="/name-search">
-						<button className="btn btn-outline-secondary mx-2">Search by name</button>
+						<button className="btn btn-outline-danger mx-2">Search by name</button>
 					</Link>
 					<Link to="/add">
-						<button className="btn btn-outline-secondary mx-2">Add</button>
+						<button className="btn btn-outline-danger mx-2">Add</button>
 					</Link>
 					<Link to="/modify">
-						<button className="btn btn-outline-secondary mx-2">Modify</button>
+						<button className="btn btn-outline-danger mx-2">Modify</button>
 					</Link>
 					<Link to="/remove">
-						<button className="btn btn-outline-secondary mx-2">Remove</button>
+						<button className="btn btn-outline-danger mx-2">Remove</button>
 					</Link>
 				</div>
 			</div>

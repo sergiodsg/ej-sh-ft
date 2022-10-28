@@ -65,6 +65,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			  },
 
+			//Función que elimina un superhéroe
+			removeSuperhero: async (superhero) => {
+				const banksRef = collection(db, "superheros");
+				const q = query(banksRef, where("id", "==", superhero.id));
+				const querySnapshot = await getDocs(q);
+				const idSelected = querySnapshot.docs.map((doc) => doc.id);
+				for(let i = 0; i < idSelected.length; i++){
+				  try {
+					await runTransaction(db, async (transaction) => {
+				  
+					  await deleteDoc(doc(db, "superheros", idSelected[i]));
+					  getActions().getSuperheros();
+					});
+					console.log("Transaction successfully committed!");
+				  } catch (e) {
+					console.log("Transaction failed: ", e);
+				  }
+				}
+			  },
+
 			getMessage: async () => {
 				try{
 					// fetching data from the backend
