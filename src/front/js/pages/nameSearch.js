@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-export const Demo = () => {
+export const NameSearch = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -15,9 +15,7 @@ export const Demo = () => {
 							key={index}
 							className="list-group-item d-flex justify-content-between"
 							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
+								<span>{item.title} name search</span>
 							{// Conditional render example
 							// Check to see if the background is orange, if so, display the message
 							item.background === "orange" ? (
