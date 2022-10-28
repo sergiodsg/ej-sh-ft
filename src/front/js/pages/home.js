@@ -8,10 +8,10 @@ export const Home = () => {
 
   return (
     
-	  <div className="container mx-auto mb-5">
+	  <div className="container mx-auto m-3">
 		<div className="card">
 			<div className="card-header">
-				<h4>Superhero list</h4>
+				<h4>List of all superheros</h4>
 			</div>
 			<div className="card-body d-flex justify-content-center">
 				<div className="table-responsive table-wrapper mx-auto">

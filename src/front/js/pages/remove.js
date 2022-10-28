@@ -24,7 +24,7 @@ export const Remove = () => {
 			<div className="container mx-auto form-1">
 				<Form>
 					<Form.Group className="m-3" controlId="formBasicID">
-						<Form.Label>Enter the ID of the superhero you want to remove</Form.Label>
+						<Form.Label>Enter the ID of the superhero to remove</Form.Label>
 						<Form.Control type="text" placeholder="ID"  value={formValues.id} onChange={(e) => setFormValues({ ...formValues, id: e.target.value })}/>
 					</Form.Group>
 				</Form>
