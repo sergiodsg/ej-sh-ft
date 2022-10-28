@@ -4,9 +4,11 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 export const Home = () => {
-  const { store, actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
-  return (
+	actions.getSuperheros();
+
+  	return (
     
 	  <div className="container mx-auto m-3">
 		<div className="card">
@@ -37,5 +39,5 @@ export const Home = () => {
 			</div>
 		</div>
 	</div>
-  );
+  	);
 };

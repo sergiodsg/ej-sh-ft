@@ -109,6 +109,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			  },
 
+			//Función que busca un superhéroe por ID
+			searchByIdSuperhero: async (superhero) => {
+				const superheroRef = collection(db, "superheros");
+				const q = query(superheroRef, where("id", "==", superhero.id));
+				const querySnapshot = await getDocs(q);
+				// const idSelected = querySnapshot.docs.map((doc) => doc.id);
+				const superherosList = querySnapshot.docs.map((doc) => doc.data());
+				setStore({superheros:superherosList});
+			  },
+
 			getMessage: async () => {
 				try{
 					// fetching data from the backend
