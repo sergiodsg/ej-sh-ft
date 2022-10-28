@@ -6,14 +6,6 @@ import "../../styles/home.css";
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
-  let superhero = {
-    id: "0",
-    name: "sh1",
-    powers: "i don't have powers",
-  };
-
-  actions.addSuperhero(superhero);
-
   return (
     
 	  <div className="container mx-auto mb-5">
@@ -26,7 +18,7 @@ export const Home = () => {
 					<table id="userList" className="table table-bordered table-hover table-striped">
 						<thead className="thead-light">
 							<tr>
-								<th scope="col">id</th>
+								<th scope="col">ID</th>
 								<th scope="col">Name</th>
 								<th scope="col">Powers</th>
 							</tr>

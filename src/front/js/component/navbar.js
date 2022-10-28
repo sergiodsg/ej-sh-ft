@@ -22,6 +22,9 @@ export const Navbar = () => {
 					<Link to="/name-search">
 						<button className="btn btn-outline-secondary mx-2">Search by name</button>
 					</Link>
+					<Link to="/add">
+						<button className="btn btn-outline-secondary mx-2">Add</button>
+					</Link>
 					<Link to="/modify">
 						<button className="btn btn-outline-secondary mx-2">Modify</button>
 					</Link>

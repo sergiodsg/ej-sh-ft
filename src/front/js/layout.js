@@ -7,6 +7,7 @@ import { IdSearch } from "./pages/idSearch";
 import { NameSearch } from "./pages/nameSearch";
 import { Modify } from "./pages/modify";
 import { Remove } from "./pages/remove";
+import { Add } from "./pages/add";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -29,6 +30,7 @@ const Layout = () => {
                         <Route element={<NameSearch />} path="/name-search" />
                         <Route element={<Modify />} path="/modify" />
                         <Route element={<Remove />} path="/remove" />
+                        <Route element={<Add />} path="/add" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
