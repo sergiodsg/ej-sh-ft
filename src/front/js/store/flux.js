@@ -1,6 +1,31 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { collection, addDoc, getFirestore, getDocs, doc, deleteDoc, runTransaction, query, where, setDoc } from "firebase/firestore";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDzFb_EHdfrOVnadVSn_FyP136aQOH-Px4",
+  authDomain: "ej-superhrs.firebaseapp.com",
+  projectId: "ej-superhrs",
+  storageBucket: "ej-superhrs.appspot.com",
+  messagingSenderId: "313695523755",
+  appId: "1:313695523755:web:c5acbe0fca29084cd938ee",
+  measurementId: "G-27MKCS04ZL"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+console.log(db);
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			superheros:[],
 			message: null,
 			demo: [
 				{
@@ -20,6 +45,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
+			//Función que recupera y actualiza en el store los superhéroes almacenados en firestore
+			getSuperheros: async () => {
+				const superherosCol = collection(db, "superheros");
+				const superherosSnapshot = await getDocs(superherosCol);
+				const superherosList = superherosSnapshot.docs.map((doc) => doc.data());
+				setStore({superheros:superherosList});
+			  },
+		
+			// Función que añade un superhéroe al firestore, recibe como parámetro un objeto con las propiedades del superhéroe
+			addSuperhero: async (superhero) => {
+				try {
+				  const docRef = await addDoc(collection(db, "superheros"), superhero);
+				  console.log("Document written with ID: ", docRef.id);
+				  getActions().getSuperheros();
+				} catch (e) {
+				  console.error("Error adding document: ", e);
+				}
+			  },
 
 			getMessage: async () => {
 				try{

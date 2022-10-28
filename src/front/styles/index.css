@@ -1,3 +1,8 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.table-wrapper {
+    max-height: 60vh;
+    overflow: auto;
+    display:inline-block;
+  }
