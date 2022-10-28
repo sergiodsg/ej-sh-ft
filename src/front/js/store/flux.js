@@ -114,9 +114,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const superheroRef = collection(db, "superheros");
 				const q = query(superheroRef, where("id", "==", superhero.id));
 				const querySnapshot = await getDocs(q);
-				// const idSelected = querySnapshot.docs.map((doc) => doc.id);
 				const superherosList = querySnapshot.docs.map((doc) => doc.data());
 				setStore({superheros:superherosList});
+			  },
+
+			//Función que busca un superhéroe por nombre
+			searchByNameSuperhero: async (superhero) => {
+				const superherosCol = collection(db, "superheros");
+				const superherosSnapshot = await getDocs(superherosCol);
+				const superherosList = superherosSnapshot.docs.map((doc) => doc.data());
+				const superherosFiltered = superherosList.filter(superheros => superheros.name.toLowerCase().search(superhero.name.toLowerCase()) != -1);
+				console.log(superherosFiltered);
+				setStore({superheros:superherosFiltered});
 			  },
 
 			getMessage: async () => {

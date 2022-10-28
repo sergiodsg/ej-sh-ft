@@ -32,7 +32,7 @@ export const IdSearch = () => {
 					</Form.Group>
 				</Form>
 				{
-					((formValues.id != 0) && (formValues.click === true)) &&
+					((formValues.id != "") && (formValues.click === true)) &&
 					<div className="card">
 						<div className="card-header">
 							<h4>List of all superheros</h4>
