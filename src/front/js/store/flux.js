@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { collection, addDoc, getFirestore, getDocs, doc, deleteDoc, runTransaction, query, where, setDoc } from "firebase/firestore";
 import { getAnalytics } from "firebase/analytics";
+import { nameMatch } from "../modules/nameMatch";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -123,7 +124,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const superherosCol = collection(db, "superheros");
 				const superherosSnapshot = await getDocs(superherosCol);
 				const superherosList = superherosSnapshot.docs.map((doc) => doc.data());
-				const superherosFiltered = superherosList.filter(superheros => superheros.name.toLowerCase().search(superhero.name.toLowerCase()) != -1);
+				const superherosFiltered = superherosList.filter(superheros => nameMatch(superheros.name, superhero.name));
 				console.log(superherosFiltered);
 				setStore({superheros:superherosFiltered});
 			  },
